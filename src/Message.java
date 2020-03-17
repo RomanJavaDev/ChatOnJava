@@ -1,10 +1,12 @@
 
 import java.io.Serializable;
 
+// Сообщение Message - это данные, которые одна сторона отправляет, а вторая принимает
+
 public class Message implements Serializable {
 
-    private final MessageType type;
-    private final String data;
+    private final MessageType type;  // тип сообщения
+    private final String data;  // данные сообщения
 
     public Message(MessageType type) {
         this.type = type;

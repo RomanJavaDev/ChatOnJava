@@ -6,9 +6,13 @@ import java.io.InputStreamReader;
 public class ConsoleHelper {
     private static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
+
+    // Выводит сообщение message в консоль
     public static void writeMessage(String message) {
         System.out.println(message);
     }
+
+    // Cчитывает строку с консоли
     public static String readString() {
         while (true) {
             try {
@@ -19,6 +23,8 @@ public class ConsoleHelper {
             }
         }
     }
+
+    // Возвращает введенное число
     public static int readInt() {
         while (true) {
             try {

@@ -12,6 +12,7 @@ public class ClientGuiController extends Client {
         return model;
     }
 
+    // должен получать объект SocketThread через метод getSocketThread() и вызывать у него метод run().
     @Override
     public void run() {
         getSocketThread().run();
@@ -40,24 +41,28 @@ public class ClientGuiController extends Client {
 
     public  class GuiSocketThread extends SocketThread{
 
+        // должен устанавливать новое сообщение у модели и вызывать обновление вывода сообщений у представления.
         @Override
         protected void processIncomingMessage(String message) {
             model.setNewMessage(message);
             view.refreshMessages();
         }
 
+        // должен добавлять нового пользователя в модель и вызывать обновление вывода пользователей у отображения.
         @Override
         protected void informAboutAddingNewUser(String userName) {
             model.addUser(userName);
             view.refreshUsers();
         }
 
+        // должен удалять пользователя из модели и вызывать обновление вывода пользователей у отображения.
         @Override
         protected void informAboutDeletingNewUser(String userName) {
             model.deleteUser(userName);
             view.refreshUsers();
         }
 
+        // должен вызывать аналогичный метод у представления.
         @Override
         protected void notifyConnectionStatusChanged(boolean clientConnected) {
             view.notifyConnectionStatusChanged(clientConnected);
